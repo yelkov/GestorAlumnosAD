@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <alumnos>
     <alumno>
-        <dni>111</dni>
-        <nombre>UNO</nombre>
-        <edad>18</edad>
-        <notaMedia>6.4</notaMedia>
+        <dni>64691962T</dni>
+        <nombre>Evan</nombre>
+        <edad>22</edad>
+        <notaMedia>8.5</notaMedia>
         <repite>No</repite>
     </alumno>
     <alumno>
-        <dni>222</dni>
-        <nombre>DOS</nombre>
-        <edad>21</edad>
-        <notaMedia>3.1</notaMedia>
+        <dni>28476159C</dni>
+        <nombre>Iván</nombre>
+        <edad>18</edad>
+        <notaMedia>3.9</notaMedia>
         <repite>Sí</repite>
     </alumno>
     <alumno>
-        <dni>333</dni>
-        <nombre>TRES</nombre>
-        <edad>16</edad>
-        <notaMedia>7.2</notaMedia>
+        <dni>59790032Z</dni>
+        <nombre>David</nombre>
+        <edad>25</edad>
+        <notaMedia>9.7</notaMedia>
         <repite>No</repite>
     </alumno>
     <alumno>
-        <dni>444</dni>
-        <nombre>CUATRO</nombre>
-        <edad>12</edad>
+        <dni>83987776X</dni>
+        <nombre>Yelko</nombre>
+        <edad>31</edad>
+        <notaMedia>5.4</notaMedia>
+        <repite>No</repite>
+    </alumno>
+    <alumno>
+        <dni>21231609X</dni>
+        <nombre>JP</nombre>
+        <edad>19</edad>
         <notaMedia>5.1</notaMedia>
         <repite>Sí</repite>
     </alumno>

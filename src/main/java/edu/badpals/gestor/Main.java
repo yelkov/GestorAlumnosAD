@@ -5,23 +5,21 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        Alumno alumno1 = new Alumno("111","UNO","18",6.4F,false);
-        Alumno alumno2 = new Alumno("222","DOS","21",3.1F,true);
-        Alumno alumno3 = new Alumno("333","TRES","16",7.2F,false);
-        Alumno alumno4 = new Alumno("444","CUATRO","12",5.1F,true);
+        GestorAlumnos gestor = new GestorAlumnos(new GestorFichero());
 
-        Set<Alumno> alumnos = new HashSet<>();
-        alumnos.add(alumno1);
-        alumnos.add(alumno2);
-        alumnos.add(alumno3);
-        alumnos.add(alumno4);
+        gestor.crearAlumno("83987776X","Yelko","31",5.4f,false);
+        gestor.crearAlumno("59790032Z","David","25",9.7f,false);
+        gestor.crearAlumno("64691962T","Evan","22",8.5f,false);
+        gestor.crearAlumno("28476159C","Iván","18",3.9f,true);
+        gestor.crearAlumno("21231609X","JP","19",5.1f,true);
 
-        GestorFichero gestorFichero = new GestorFichero();
+        gestor.mostrarAlumnos();
+        gestor.mostrarRepetidores();
+        gestor.mostrarAprobados();
 
-        gestorFichero.escribirFicheros(alumnos);
+        gestor.guardarCambios();
 
-        Set<Alumno> alumnosLeidos = gestorFichero.leerFichero();
-        System.out.println(alumnosLeidos);
+        gestor.mostrarAlumnos();
 
     }
 }
