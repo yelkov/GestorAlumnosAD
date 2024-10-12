@@ -1,9 +1,7 @@
 package edu.badpals.gestor;
 
-import org.w3c.dom.DOMImplementation;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Text;
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -12,15 +10,55 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
 public class GestorFichero {
-    private static String RUTA_FICHERO_ALUMNOS = "src/main/resources/alumnos.xml";
-    private static String RUTA_FICHERO_REPETIDORES = "src/main/resources/repetidores.xml";
-    private static String RUTA_FICHERO_APROBADOS = "src/main/resources/aprobados.xml";
+    private static final String RUTA_FICHERO_ALUMNOS = "src/main/resources/alumnos.xml";
+    private static final String RUTA_FICHERO_REPETIDORES = "src/main/resources/repetidores.xml";
+    private static final String RUTA_FICHERO_APROBADOS = "src/main/resources/aprobados.xml";
 
     public GestorFichero(){};
+
+    public Set<Alumno> leerFichero(){
+        Set<Alumno> alumnos = new HashSet<>();
+        try{
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = dbf.newDocumentBuilder();
+            Document doc = builder.parse(new File(RUTA_FICHERO_ALUMNOS));
+            doc.getDocumentElement().normalize();
+
+            NodeList nodosAlumnos = doc.getElementsByTagName("alumno");
+
+            for(int i = 0; i < nodosAlumnos.getLength(); i++){
+                Element alumno = (Element) nodosAlumnos.item(i);
+
+                Element dniElemento = (Element) alumno.getElementsByTagName("dni").item(0);
+                String dni = dniElemento.getTextContent();
+
+                Element nombreElemento = (Element) alumno.getElementsByTagName("nombre").item(0);
+                String nombre = nombreElemento.getTextContent();
+
+                Element edadElemento = (Element) alumno.getElementsByTagName("edad").item(0);
+                String edad = edadElemento.getTextContent();
+
+                Element notaMediaElemento = (Element) alumno.getElementsByTagName("notaMedia").item(0);
+                Float notaMedia = Float.valueOf(notaMediaElemento.getTextContent());
+
+                Element repiteElemento = (Element) alumno.getElementsByTagName("repite").item(0);
+                String repite = repiteElemento.getTextContent();
+                boolean esRepetidor = repite.equals("Sí")?true:false;
+
+                alumnos.add(new Alumno(dni,nombre,edad,notaMedia,esRepetidor));
+            }
+
+        } catch (ParserConfigurationException | IOException | SAXException  e) {
+            System.out.println("Error en la lectura del fichero de alumnos.");
+            e.printStackTrace();
+        }
+        return alumnos;
+    }
 
     public void escribirFicheros(Set<Alumno> alumnos){
         Set<Alumno> repetidores = new HashSet<>();
@@ -75,7 +113,7 @@ public class GestorFichero {
 
                 Element repite = doc.createElement("repite");
                 elementoAlumno.appendChild(repite);
-                Text repiteTexto = doc.createTextNode(alumno.esRepetidor()? "true":"false");
+                Text repiteTexto = doc.createTextNode(alumno.esRepetidor()? "Sí":"No");
                 repite.appendChild(repiteTexto);
             }
             Source source = new DOMSource(doc);

@@ -20,5 +20,8 @@ public class Main {
 
         gestorFichero.escribirFicheros(alumnos);
 
+        Set<Alumno> alumnosLeidos = gestorFichero.leerFichero();
+        System.out.println(alumnosLeidos);
+
     }
 }
