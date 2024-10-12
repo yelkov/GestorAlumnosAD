@@ -70,4 +70,16 @@ public class Alumno {
     public int hashCode() {
         return Objects.hashCode(dni);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nAlumno: ")
+                .append("\n\tdni: ").append(dni)
+                .append("\n\tnombre: ").append(nombre)
+                .append("\n\tedad: ").append(edad)
+                .append("\n\tNota media: ").append(notaMedia)
+                .append("\n\trepite: ").append(esRepetidor()? "Sí":"No");
+        return sb.toString();
+    }
 }
