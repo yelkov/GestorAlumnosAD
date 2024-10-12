@@ -1,5 +1,7 @@
 package edu.badpals.gestor;
 
+import java.util.Objects;
+
 public class Alumno {
     private String dni;
     private String nombre;
@@ -53,4 +55,15 @@ public class Alumno {
         return this.repite;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Alumno alumno)) return false;
+        return Objects.equals(dni, alumno.dni);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(dni);
+    }
 }
