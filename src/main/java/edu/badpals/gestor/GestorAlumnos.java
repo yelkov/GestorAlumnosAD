@@ -80,7 +80,7 @@ public class GestorAlumnos {
         this.cambiosGuardados = cambiosGuardados;
     }
 
-    private boolean esCambiosGuardados(){
+    public boolean esCambiosGuardados(){
         return this.cambiosGuardados;
     }
 

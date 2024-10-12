@@ -8,6 +8,13 @@
         <repite>No</repite>
     </alumno>
     <alumno>
+        <dni>47022425Y</dni>
+        <nombre>TAMARA PARDO GOMEZ</nombre>
+        <edad>23</edad>
+        <notaMedia>3.5</notaMedia>
+        <repite>Sí</repite>
+    </alumno>
+    <alumno>
         <dni>28476159C</dni>
         <nombre>Iván</nombre>
         <edad>18</edad>
