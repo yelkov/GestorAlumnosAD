@@ -23,10 +23,16 @@ public class GestorFichero {
 
     public Set<Alumno> leerFichero(){
         Set<Alumno> alumnos = new HashSet<>();
+        File fichero = new File(RUTA_FICHERO_ALUMNOS);
+
+        if (!fichero.exists()) {
+            System.out.println("El archivo no existe. Se creará uno nuevo.");
+            return alumnos;
+        }
         try{
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = dbf.newDocumentBuilder();
-            Document doc = builder.parse(new File(RUTA_FICHERO_ALUMNOS));
+            Document doc = builder.parse(fichero);
             doc.getDocumentElement().normalize();
 
             NodeList nodosAlumnos = doc.getElementsByTagName("alumno");
