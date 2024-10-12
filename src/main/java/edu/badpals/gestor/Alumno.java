@@ -5,14 +5,18 @@ import java.util.Objects;
 public class Alumno {
     private String dni;
     private String nombre;
-    private Integer edad;
+    private String edad;
     private Float notaMedia;
     private boolean repite;
 
     public Alumno(){};
 
-    public Alumno(String dni){
+    public Alumno(String dni, String nombre, String edad,Float notaMedia, boolean repite) {
         this.dni = dni;
+        this.nombre = nombre;
+        this.notaMedia = notaMedia;
+        this.edad = edad;
+        this.repite = repite;
     }
 
     public String getDni() {
@@ -31,11 +35,11 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public Integer getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(Integer edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 

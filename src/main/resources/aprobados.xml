@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<alumnos>
+    <alumno>
+        <dni>111</dni>
+        <nombre>UNO</nombre>
+        <edad>18</edad>
+        <notaMedia>6.4</notaMedia>
+        <repite>false</repite>
+    </alumno>
+    <alumno>
+        <dni>333</dni>
+        <nombre>TRES</nombre>
+        <edad>16</edad>
+        <notaMedia>7.2</notaMedia>
+        <repite>false</repite>
+    </alumno>
+    <alumno>
+        <dni>444</dni>
+        <nombre>CUATRO</nombre>
+        <edad>12</edad>
+        <notaMedia>5.1</notaMedia>
+        <repite>true</repite>
+    </alumno>
+</alumnos>
