@@ -42,4 +42,11 @@
         <notaMedia>5.1</notaMedia>
         <repite>Sí</repite>
     </alumno>
+    <alumno>
+        <dni>65218852Y</dni>
+        <nombre>MANUELA CARDONA CASAS</nombre>
+        <edad>15</edad>
+        <notaMedia>9.0</notaMedia>
+        <repite>No</repite>
+    </alumno>
 </alumnos>
